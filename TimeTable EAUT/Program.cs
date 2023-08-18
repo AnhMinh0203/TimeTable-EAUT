@@ -18,6 +18,10 @@ class Program
         public int appear;
         public int dayStart;
     }
+    public class room
+    {
+        public string roomName;
+    }
     public class checkdays
     {
         public bool ca1, ca2, ca3, ca4;
@@ -195,113 +199,114 @@ class Program
 
         for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (int j = cols - 1; j >= 0; j--)
             {
-                if ((i == 1 && j == 1) || (i == 2 && j == 2) || (i == 3 && j == 3))
+                if ((i == 1 && j == 4) || (i == 2 && j == 3) || (i == 3 && j == 2))
                 {
                     result[i, j] = clas;
                     IsClassMoreThanClasses(result, classes, i, j);
                     clas++;
                 }
-                else if (i == 2 && j == 4)
+                else if (i == 2 && j == 1)
                 {
                     result[i, j] = 4;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
 
-                else if (i == 1 && j == 5)
+                else if (i == 1 && j == 0)
                 {
                     result[i, j] = 5;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if ((i == 2 && j == 1) || (i == 3 && j == 2))
+                else if ((i == 2 && j == 4) || (i == 3 && j == 3))
                 {
                     result[i, j] = clas + 4;
                     IsClassMoreThanClasses(result, classes, i, j);
 
                 }
-                else if ((i == 2 && j == 3))
+                else if ((i == 2 && j == 2))
                 {
 
                     result[i, j] = 8;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 4)
+                else if (i == 1 && j == 1)
                 {
                     result[i, j] = 9;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 5)
+                else if (i == 0 && j == 0)
                 {
                     result[i, j] = 10;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 0)
+                else if (i == 2 && j == 5)
                 {
                     result[i, j] = 11;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 1)
+                else if (i == 3 && j == 4)
                 {
                     result[i, j] = 12;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 2)
+
+                else if (i == 1 && j == 3)
                 {
                     result[i, j] = 13;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 1)
+                else if (i == 0 && j == 4)
                 {
                     result[i, j] = 14;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 0)
+                else if (i == 3 && j == 5)
                 {
                     result[i, j] = 15;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 2)
+                else if (i == 0 && j == 3)
                 {
                     result[i, j] = 16;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 3)
+                else if (i == 1 && j == 2)
                 {
                     result[i, j] = 17;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 3)
+                else if (i == 0 && j == 2)
                 {
                     result[i, j] = 18;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 5)
+                else if (i == 2 && j == 0)
                 {
                     result[i, j] = 19;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 4)
+                else if (i == 0 && j == 1)
                 {
                     result[i, j] = 20;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 5)
+                else if (i == 0 && j == 5)
                 {
                     result[i, j] = 21;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 0)
+                else if (i == 1 && j == 5)
                 {
                     result[i, j] = 22;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 0)
+                else if (i == 3 && j == 1)
                 {
                     result[i, j] = 23;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 4)
+                else if (i == 3 && j == 0)
                 {
                     result[i, j] = 24;
                     IsClassMoreThanClasses(result, classes, i, j);
@@ -311,10 +316,11 @@ class Program
                     result[i, j] = 0;
                 }
             }
+
         }
         return result;
     }
-    static int[,] softFirst3(int[,] a, int classes)
+    static int[,] softFirst3(int[,] a, int classes, bool flag)
     {
         int rows = 4;
         int cols = 6;
@@ -591,6 +597,7 @@ class Program
                 }
             }
         }
+        flag = true;
         return result;
     }
     // Second sub
@@ -706,101 +713,100 @@ class Program
 
         for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (int j = cols - 1; j >= 0; j--)
             {
-                if (j == i + 1)
+                if (i + j == 4)
                 {
                     result[i, j] = clas;
                     IsClassMoreThanClasses(result, classes, i, j);
                     clas++;
                 }
-                else if (i == 2 && j == 5)
+                else if (i == 2 && j == 0)
                 {
                     result[i, j] = 5;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if ((i == 1 && j == 1) || (i == 2 && j == 2) || (i == 3 && j == 3))
+                else if ((i == 1 && j == 4) || (i == 2 && j == 3) || (i == 3 && j == 2))
                 {
                     result[i, j] = clas + 4;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 4)
+                else if (i == 2 && j == 1)
                 {
                     result[i, j] = 9;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 5)
+                else if (i == 1 && j == 0)
                 {
                     result[i, j] = 10;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 0)
+                else if (i == 1 && j == 5)
                 {
                     result[i, j] = 11;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 1)
+                else if (i == 2 && j == 4)
                 {
                     result[i, j] = 12;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 2)
+                else if (i == 0 && j == 3)
                 {
                     result[i, j] = 13;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 4)
+                else if (i == 1 && j == 1)
                 {
                     result[i, j] = 14;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 0)
+                else if (i == 2 && j == 5)
                 {
                     result[i, j] = 15;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 3)
+                else if (i == 1 && j == 2)
                 {
                     result[i, j] = 16;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 3)
+                else if (i == 0 && j == 2)
                 {
                     result[i, j] = 17;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 4)
+                else if (i == 0 && j == 1)
                 {
                     result[i, j] = 18;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 5)
-                {
-                    result[i, j] = 19;
-                    IsClassMoreThanClasses(result, classes, i, j);
-
-                }
-                else if (i == 0 && j == 0)
-                {
-                    result[i, j] = 20;
-                    IsClassMoreThanClasses(result, classes, i, j);
-                }
                 else if (i == 3 && j == 0)
                 {
-                    result[i, j] = 21;
-                    IsClassMoreThanClasses(result, classes, i, j);
-                }
-                else if (i == 3 && j == 2)
-                {
-                    result[i, j] = 22;
+                    result[i, j] = 19;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
                 else if (i == 0 && j == 5)
                 {
+                    result[i, j] = 20;
+                    IsClassMoreThanClasses(result, classes, i, j);
+                }
+                else if (i == 0 && j == 0)
+                {
+                    result[i, j] = 21;
+                    IsClassMoreThanClasses(result, classes, i, j);
+                }
+                else if (i == 3 && j == 3)
+                {
+                    result[i, j] = 22;
+                    IsClassMoreThanClasses(result, classes, i, j);
+                }
+                else if (i == 3 && j == 4)
+                {
                     result[i, j] = 23;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 1)
+                else if (i == 3 && j == 5)
                 {
                     result[i, j] = 24;
                     IsClassMoreThanClasses(result, classes, i, j);
@@ -813,7 +819,7 @@ class Program
         }
         return result;
     }
-    static int[,] softSecond3(int[,] a, int classes)
+    static int[,] softSecond3(int[,] a, int classes, bool flag)
     {
         int rows = 4;
         int cols = 6;
@@ -952,6 +958,7 @@ class Program
                 }
             }
         }
+        flag = true;
         return result;
     }
     // Third sub
@@ -1017,114 +1024,113 @@ class Program
 
         for (int i = 0; i < rows; i++)
         {
-            for (int j = cols - 1; j >= 0; j--)
+            for (int j = 0; j < cols; j++)
             {
-                if ((i == 1 && j == 4) || (i == 2 && j == 3) || (i == 3 && j == 2))
+                if ((i == 1 && j == 1) || (i == 2 && j == 2) || (i == 3 && j == 3))
                 {
                     result[i, j] = clas;
                     IsClassMoreThanClasses(result, classes, i, j);
                     clas++;
                 }
-                else if (i == 2 && j == 1)
+                else if (i == 2 && j == 4)
                 {
                     result[i, j] = 4;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
 
-                else if (i == 1 && j == 0)
+                else if (i == 1 && j == 5)
                 {
                     result[i, j] = 5;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if ((i == 2 && j == 4) || (i == 3 && j == 3))
+                else if ((i == 2 && j == 1) || (i == 3 && j == 2))
                 {
                     result[i, j] = clas + 4;
                     IsClassMoreThanClasses(result, classes, i, j);
 
                 }
-                else if ((i == 2 && j == 2))
+                else if ((i == 2 && j == 3))
                 {
 
                     result[i, j] = 8;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 1)
+                else if (i == 1 && j == 4)
                 {
                     result[i, j] = 9;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 0)
+                else if (i == 0 && j == 5)
                 {
                     result[i, j] = 10;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 5)
+                else if (i == 2 && j == 0)
                 {
                     result[i, j] = 11;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 4)
+                else if (i == 3 && j == 1)
                 {
                     result[i, j] = 12;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-
-                else if (i == 1 && j == 3)
+                else if (i == 1 && j == 2)
                 {
                     result[i, j] = 13;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 4)
+                else if (i == 0 && j == 1)
                 {
                     result[i, j] = 14;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 5)
+                else if (i == 3 && j == 0)
                 {
                     result[i, j] = 15;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 3)
+                else if (i == 0 && j == 2)
                 {
                     result[i, j] = 16;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 2)
+                else if (i == 1 && j == 3)
                 {
                     result[i, j] = 17;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 2)
+                else if (i == 0 && j == 3)
                 {
                     result[i, j] = 18;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 0)
+                else if (i == 2 && j == 5)
                 {
                     result[i, j] = 19;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 1)
+                else if (i == 0 && j == 4)
                 {
                     result[i, j] = 20;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 5)
+                else if (i == 3 && j == 5)
                 {
                     result[i, j] = 21;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 5)
+                else if (i == 1 && j == 0)
                 {
                     result[i, j] = 22;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 1)
+                else if (i == 0 && j == 0)
                 {
                     result[i, j] = 23;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 0)
+                else if (i == 3 && j == 4)
                 {
                     result[i, j] = 24;
                     IsClassMoreThanClasses(result, classes, i, j);
@@ -1134,12 +1140,12 @@ class Program
                     result[i, j] = 0;
                 }
             }
-
         }
         return result;
+        
 
     }
-    static int[,] softThird3(int[,] a, int classes)
+    static int[,] softThird3(int[,] a, int classes, bool flag)
     {
         int rows = 4;
         int cols = 6;
@@ -1278,6 +1284,7 @@ class Program
                 }
             }
         }
+        flag = true;
         return result;
     }
     // Four sub
@@ -1393,100 +1400,101 @@ class Program
 
         for (int i = 0; i < rows; i++)
         {
-            for (int j = cols - 1; j >= 0; j--)
+            for (int j = 0; j < cols; j++)
             {
-                if (i + j == 4)
+                if (j == i + 1)
                 {
                     result[i, j] = clas;
                     IsClassMoreThanClasses(result, classes, i, j);
                     clas++;
                 }
-                else if (i == 2 && j == 0)
+                else if (i == 2 && j == 5)
                 {
                     result[i, j] = 5;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if ((i == 1 && j == 4) || (i == 2 && j == 3) || (i == 3 && j == 2))
+                else if ((i == 1 && j == 1) || (i == 2 && j == 2) || (i == 3 && j == 3))
                 {
                     result[i, j] = clas + 4;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 1)
+                else if (i == 2 && j == 4)
                 {
                     result[i, j] = 9;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 0)
+                else if (i == 1 && j == 5)
                 {
                     result[i, j] = 10;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 5)
+                else if (i == 1 && j == 0)
                 {
                     result[i, j] = 11;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 4)
+                else if (i == 2 && j == 1)
                 {
                     result[i, j] = 12;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 3)
+                else if (i == 0 && j == 2)
                 {
                     result[i, j] = 13;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 1)
+                else if (i == 1 && j == 4)
                 {
                     result[i, j] = 14;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 2 && j == 5)
+                else if (i == 2 && j == 0)
                 {
                     result[i, j] = 15;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 1 && j == 2)
+                else if (i == 1 && j == 3)
                 {
                     result[i, j] = 16;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 2)
+                else if (i == 0 && j == 3)
                 {
                     result[i, j] = 17;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 1)
+                else if (i == 0 && j == 4)
                 {
                     result[i, j] = 18;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 0)
+                else if (i == 3 && j == 5)
                 {
                     result[i, j] = 19;
                     IsClassMoreThanClasses(result, classes, i, j);
+
                 }
-                else if (i == 0 && j == 5)
+                else if (i == 0 && j == 0)
                 {
                     result[i, j] = 20;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 0 && j == 0)
+                else if (i == 3 && j == 0)
                 {
                     result[i, j] = 21;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 3)
+                else if (i == 3 && j == 2)
                 {
                     result[i, j] = 22;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 4)
+                else if (i == 0 && j == 5)
                 {
                     result[i, j] = 23;
                     IsClassMoreThanClasses(result, classes, i, j);
                 }
-                else if (i == 3 && j == 5)
+                else if (i == 3 && j == 1)
                 {
                     result[i, j] = 24;
                     IsClassMoreThanClasses(result, classes, i, j);
@@ -1498,8 +1506,9 @@ class Program
             }
         }
         return result;
+        
     }
-    static int[,] softFour3(int[,] a, int classes)
+    static int[,] softFour3(int[,] a, int classes, bool flag)
     {
         int rows = 4;
         int cols = 6;
@@ -1638,7 +1647,30 @@ class Program
                 }
             }
         }
+        flag = true;
         return result;
+    }
+
+    static void fillRooms(List<string[,]> timeTableForTotalClas, List<room> listRooms, int totalClass)
+    {
+        int rows = 4;
+        int cols = 6;
+
+        for (int i = 0; i < rows; i++)
+        {
+            for  (int j = 0; j < cols; j++)
+            {
+                for(int clas = 0; clas < totalClass; clas++)
+                {
+                    if (!string.IsNullOrEmpty(timeTableForTotalClas[clas][i,j]))
+                    {
+                        timeTableForTotalClas[clas][i, j] += " " + listRooms[clas].roomName; ;
+                    }
+                }
+            }
+            
+        }
+
     }
     static void fillSubForEachClass(int[,] timeTableForEchSub, string[,] timeTableForEachClas, string subName, int clas)
     {
@@ -1655,7 +1687,7 @@ class Program
             }
         }
     }
-    static void softTimeTable(List<subjectCacul> listSubject, List<int[,]> timeTableForTotalSub, List<string[,]> timeTableForTotalClas, int totalClass)
+    static void softTimeTable(List<subjectCacul> listSubject, List<int[,]> timeTableForTotalSub, List<string[,]> timeTableForTotalClas, int totalClass, bool flag1, bool flag2,bool flag3, bool flag4,List<room> Room)
     {
         int rows = 4;
         int cols = 6;
@@ -1691,7 +1723,7 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFirst2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass);
+                        TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass,flag1);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
@@ -1720,7 +1752,7 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softSecond2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass);
+                        TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag2);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
@@ -1747,7 +1779,7 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softThird2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass);
+                        TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag3);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
@@ -1774,15 +1806,117 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFour2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass);
+                        TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag4);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                 }
+                else if(i == 4)
+                {
+                    if (listSubject[i].appear == 1)
+                    {
+                        if(flag1 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass,flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if(flag2 == false)
+                        {
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag3 == false)
+                        {
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag4 == false)
+                        {
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                    }
+                    
+                    else if (listSubject[i].appear == 2)
+                    {
+                        if (flag1 == false && flag2 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag1 == false && flag3 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag1 == false && flag4 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag2 == false && flag3 == false)
+                        {
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag2 == false && flag4 == false)
+                        {
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag3 == false && flag4 == false)
+                        {
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                    }
+                    else if (listSubject[i].appear == 3)
+                    {
+                        if (flag1 == false && flag2 == false && flag3 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag1 == false && flag3 == false && flag4 == false)
+                        {
+                            TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                        else if (flag2 == false && flag3 == false && flag4 == false)
+                        {
+                            TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                            TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag1);
+                            fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
+                        }
+                    }
+                }
             }
             timeTableForTotalClas.Add(timeTableForEachClas);
-
         }
+        //fillRooms(timeTableForTotalClas, Room, totalClass);
     }
     // --------------------------------
     // print table
@@ -1858,9 +1992,15 @@ class Program
     {
         int row = 4;
         int col = 6;
+        bool flag1 = false;
+        bool flag2 = false;
+        bool flag3 = false;
+        bool flag4 = false;
         List<subject> subjects = new List<subject>();
         List<subjectCacul> subjectsCacul = new List<subjectCacul>();
         List<checkdays> checkDaysInWeek = new List<checkdays>();
+        List<room> listRooms = new List<room>();
+
 
         for (int i = 0; i < row; i++)
         {
@@ -1873,6 +2013,13 @@ class Program
         int totalSubjects = int.Parse(Console.ReadLine());
         Console.Write("Nhap so luong lop hoc: ");
         int totalClass = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < totalClass; i++)
+        {
+            room Room = new room();
+            Room.roomName = $"DTD-70{i}";
+            listRooms.Add(Room);
+        }
 
         for (int i = 0; i < totalSubjects; i++)
         {
@@ -1897,8 +2044,9 @@ class Program
 
         List<int[,]> timeTableForTotalSub = new List<int[,]>();
         List<string[,]> timeTableForTotalClas = new List<string[,]>();
-        softTimeTable(subjectsCacul, timeTableForTotalSub, timeTableForTotalClas, totalClass);
+        softTimeTable(subjectsCacul, timeTableForTotalSub, timeTableForTotalClas, totalClass,flag1,flag2,flag3,flag4, listRooms);
         //PrintTable(timeTableForTotalSub, row, col);
-        PrintTableForSub(timeTableForTotalClas, row, col);
+        PrintRandomTableForSub(timeTableForTotalClas, row, col);
+        //PrintTableForSub(timeTableForTotalClas, row, col);
     }
 }
