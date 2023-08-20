@@ -16,15 +16,10 @@ class Program
     {
         public string subjectName;
         public int appear;
-        public int dayStart;
     }
     public class room
     {
         public string roomName;
-    }
-    public class checkdays
-    {
-        public bool ca1, ca2, ca3, ca4;
     }
     // Caculating total days to study
     static int caculateDays(string startDateStr, string endDateStr)
@@ -40,7 +35,6 @@ class Program
 
         return -1;
     }
-
     // Counting time to appeat in week
     static int caculateFrequency(int credit, subject sb)
     {
@@ -52,81 +46,12 @@ class Program
         Console.WriteLine("appear: {0}", appear);
         return appear;
     }
-    // get day off week
-    static int DayOfWeek(string dateStart)
-    {
-        if (TryParseDate(dateStart, out int day, out int month, out int year))
-        {
-            return GetDayOfWeek(year, month, day);
-        }
-
-        return -1;
-    }
-    static bool TryParseDate(string input, out int day, out int month, out int year)
-    {
-        day = month = year = 0;
-        string[] dateParts = input.Split('/');
-
-        // Hàm int.TryParse chuyển đổi phần tử theo index của mảng dateParts thành một số nguyên và gán giá trị này cho biến day,month,year
-        if (dateParts.Length == 3 && int.TryParse(dateParts[0], out day) && int.TryParse(dateParts[1], out month) && int.TryParse(dateParts[2], out year))
-        {
-            return true;
-        }
-
-        return false;
-    }
-    static int GetDayOfWeek(int year, int month, int day)
-    {
-        // Kiểm tra nếu ngày không hợp lệ
-        if (!IsValidDate(year, month, day))
-        {
-            throw new ArgumentException("Ngày không hợp lệ.");
-        }
-
-        // Tạo đối tượng DateTime từ ngày cần kiểm tra
-        DateTime date = new DateTime(year, month, day);
-
-        // Lấy thứ của ngày và ép kiểu sang int (từ 0 - Chủ nhật đến 6 - Thứ 7)
-        int dayOfWeek = (int)date.DayOfWeek;
-
-        // Chuyển đổi từ hệ thống thứ trong tuần (từ 0 - Chủ nhật đến 6 - Thứ 7) sang thứ trong tuần thông thường (từ 1 - Chủ nhật đến 7 - Thứ 7)
-        if (dayOfWeek == 0)
-        {
-            dayOfWeek = 7;
-        }
-        //DayOfWeek.Sunday: Chủ nhật(tương ứng với giá trị 0)
-        //DayOfWeek.Monday: Thứ hai(tương ứng với giá trị 1)
-        //DayOfWeek.Tuesday: Thứ ba(tương ứng với giá trị 2)
-        //DayOfWeek.Wednesday: Thứ tư(tương ứng với giá trị 3)
-        //DayOfWeek.Thursday: Thứ năm(tương ứng với giá trị 4)
-        //DayOfWeek.Friday: Thứ sáu(tương ứng với giá trị 5)
-        //DayOfWeek.Saturday: Thứ bảy(tương ứng với giá trị 6)
-        else
-        {
-            dayOfWeek += 1;
-        }
-
-        return dayOfWeek;
-    }
-
-    static bool IsValidDate(int year, int month, int day)
-    {
-        // Kiểm tra nếu năm, tháng và ngày nằm trong khoảng hợp lệ
-        if (year < 1 || month < 1 || month > 12 || day < 1 || day > DateTime.DaysInMonth(year, month))
-        {
-            return false;
-        }
-
-        return true;
-    }
-
     // Return subjectCacul Object
     static subjectCacul caculateSubject(subject sb)
     {
         subjectCacul result = new subjectCacul();
         result.subjectName = sb.subjectName;
         result.appear = caculateFrequency(sb.credit, sb);
-        result.dayStart = DayOfWeek(sb.dateStart);
         return result;
     }
     //-------------------
@@ -1916,47 +1841,11 @@ class Program
             }
             timeTableForTotalClas.Add(timeTableForEachClas);
         }
-        //fillRooms(timeTableForTotalClas, Room, totalClass);
+        fillRooms(timeTableForTotalClas, Room, totalClass);
     }
     // --------------------------------
     // print table
-    static void PrintTable(List<int[,]> timeTableForTotalSub, int rows, int columns)
-    {
-        for (int ob = 0; ob < timeTableForTotalSub.Count; ob++)
-        {
-            int[,] currentTable = timeTableForTotalSub[ob];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
-                {
-                    Console.Write("|" + currentTable[i, j] + "\t");
-                }
-                Console.WriteLine("|");
-            }
-
-            Console.WriteLine(new string('-', columns * 8));
-        }
-    }
-    static void PrintTableForSub(List<string[,]> timeTableForTotalSub, int rows, int columns)
-    {
-        Random random = new Random();
-        for (int ob = 0; ob < timeTableForTotalSub.Count; ob++)
-        {
-            string[,] currentTable = timeTableForTotalSub[ob];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
-                {
-                    Console.Write("|" + currentTable[i, j] + "\t");
-                }
-                Console.WriteLine("|");
-            }
-
-            Console.WriteLine(new string('-', columns * 8));
-        }
-    }
+   
     static void PrintRandomTableForSub(List<string[,]> timeTableForTotalSub, int rows, int columns)
     {
         Random random = new Random();
@@ -1998,16 +1887,8 @@ class Program
         bool flag4 = false;
         List<subject> subjects = new List<subject>();
         List<subjectCacul> subjectsCacul = new List<subjectCacul>();
-        List<checkdays> checkDaysInWeek = new List<checkdays>();
         List<room> listRooms = new List<room>();
 
-
-        for (int i = 0; i < row; i++)
-        {
-            checkdays check = new checkdays();
-            check.ca1 = true; check.ca2 = true; check.ca3 = true; check.ca4 = true;
-            checkDaysInWeek.Add(check);
-        }
 
         Console.Write("Nhap so luong mon hoc: ");
         int totalSubjects = int.Parse(Console.ReadLine());
@@ -2045,8 +1926,6 @@ class Program
         List<int[,]> timeTableForTotalSub = new List<int[,]>();
         List<string[,]> timeTableForTotalClas = new List<string[,]>();
         softTimeTable(subjectsCacul, timeTableForTotalSub, timeTableForTotalClas, totalClass,flag1,flag2,flag3,flag4, listRooms);
-        //PrintTable(timeTableForTotalSub, row, col);
         PrintRandomTableForSub(timeTableForTotalClas, row, col);
-        //PrintTableForSub(timeTableForTotalClas, row, col);
     }
 }
