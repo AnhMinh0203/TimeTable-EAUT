@@ -1631,7 +1631,6 @@ class Program
                     {
                         TimeTbForEarchSub = softFirst1(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                     else if (listSubject[i].appear == 2)
                     {
@@ -1639,8 +1638,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFirst2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
-
                     }
                     else if (listSubject[i].appear == 3)
                     {
@@ -1650,7 +1647,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFirst3(TimeTbForEarchSub, totalClass,flag1);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
 
                 }
@@ -1659,8 +1655,7 @@ class Program
                     if (listSubject[i].appear == 1)
                     {
                         TimeTbForEarchSub = softSecond1(TimeTbForEarchSub, totalClass);
-                        fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
+                        fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);                  
                     }
                     else if (listSubject[i].appear == 2)
                     {
@@ -1668,8 +1663,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softSecond2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
-
                     }
                     else if (listSubject[i].appear == 3)
                     {
@@ -1679,7 +1672,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softSecond3(TimeTbForEarchSub, totalClass, flag2);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                 }
                 else if (i == 2)
@@ -1688,7 +1680,6 @@ class Program
                     {
                         TimeTbForEarchSub = softThird1(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                     else if (listSubject[i].appear == 2)
                     {
@@ -1696,7 +1687,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softThird2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                     else if (listSubject[i].appear == 3)
                     {
@@ -1706,7 +1696,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softThird3(TimeTbForEarchSub, totalClass, flag3);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                 }
                 else if (i == 3)
@@ -1715,7 +1704,6 @@ class Program
                     {
                         TimeTbForEarchSub = softFour1(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                     else if (listSubject[i].appear == 2)
                     {
@@ -1723,7 +1711,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFour2(TimeTbForEarchSub, totalClass);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                     else if (listSubject[i].appear == 3)
                     {
@@ -1733,7 +1720,6 @@ class Program
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
                         TimeTbForEarchSub = softFour3(TimeTbForEarchSub, totalClass, flag4);
                         fillSubForEachClass(TimeTbForEarchSub, timeTableForEachClas, listSubject[i].subjectName, cls + 1);
-                        timeTableForTotalSub.Add(TimeTbForEarchSub);
                     }
                 }
                 else if(i == 4)
